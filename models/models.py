@@ -30,7 +30,7 @@ def save_message(username, trip_secret, text, ip= None):
     message = {
         "username": username or "Guest",
         "trip_id": trip_id,
-        "text": text,
+        "message": text,
         "timestamp": datetime.now(timezone.utc),
         "ip_hash": ip_hash,
     }

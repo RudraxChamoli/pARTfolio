@@ -1,0 +1,36 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #121212;
+    color:papayawhip;
+    text-align: center;
+    margin: 5%;
+    padding: 20px;
+}
+
+h1{
+    color: #8cb399
+}
+
+.chatbox {
+    background: #1e1e1e;
+    border-radius: 10px;
+    height: 480px;
+    width: 80%;
+    margin: 20px auto;
+    overflow-y: scroll;
+    padding: 10px;
+    text-align: left;
+}
+
+.input-area{
+    margin-top: 10px;
+}
+
+input{
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    background: #1db950;
+    color:antiquewhite;
+    cursor: pointer;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">My Music Portfolio</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/chat">Community Chat</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="container mt-5 text-center">
+    <h1>sup</h1>
+    <p class="lead">Guitarist | Composer | Music Producer</p>
+
+    <p>Do you like it?</p>
+
+    <a href="/chat" class="btn btn-primary mt-3">Join the Chat</a>
+</section>
+
+<footer class="text-center mt-5 mb-3">
+    <p>© 2025 Astrolio. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

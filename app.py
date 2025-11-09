@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from models.models import db, save_message
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -10,13 +10,25 @@ app = Flask(__name__)
 # app.config["MONGO_URI"] = "mongodb://localhost:27017/artist_chat"
 # mongo.init_app(app)
 
+@app.route('/')
+def home():
+    return render_template("index.html")
+@app.route('/chat')
+def chat():
+    return render_template('chat.html')
+
+
+@app.route('/admin')
+def admin():
+    return render_template('admin.html')
+
 #chat routes
 @app.route("/chat/send", methods=["POST"])
 def send_message():
     data = request.get_json()
     username = data.get("username", "Guest")
     trip_secret = data.get("tripcode", None)
-    text = data.get("text", "")
+    text = data.get("message", "")
     ip = request.remote_addr
 
     if not text.strip():
@@ -28,9 +40,10 @@ def send_message():
 @app.route("/chat/get", methods=["GET"])
 def get_messages():
     """fetch latest messages"""
-    messages = list(db.messages.find().sort("timestamp", -1).limit(50))
+    messages = list(db.messages.find().sort("timestamp").limit(50))
     for m in messages:
         m["_id"] = str(m["_id"])
+        m["tripcode"] = m.get("tripcode", "")
     return jsonify(messages), 200
 
 
